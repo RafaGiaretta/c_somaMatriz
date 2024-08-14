@@ -2,6 +2,16 @@
 
 int l,c,k;
 
+void menuInicial(int * n, int * l, int * c){
+	
+	printf("Entre com a quantidade de matriz: ");
+	scanf("%d", n );
+	
+	printf("Entre com a quantidade de linhas e colunas: ");
+	scanf("%d %d", l, c);	
+
+}
+
 void iniciarMatrizR(int matrizR[l][c], int i, int j){
 	for(i = 0; i < l; i++) {
         for(j = 0; j < c; j++) {
@@ -67,14 +77,11 @@ printf("\t----------- MATRIZ RESULTANTE -----------\n", (k+1));
 void main (){
 	int i, j, k;	
 	int n, vc, vr = 0;
+	
+	menuInicial(&n, &l, &c);
+	
 	int matriz[n][l][c];
 	int matrizR[l][c];	
-	
-	printf("Entre com a quantidade de matriz: ");
-	scanf("%d", &n );
-	
-	printf("Entre com a quantidade de linhas e colunas: ");
-	scanf("%d %d", &l, &c);
 
 	iniciarMatrizR(matrizR, i, j);
 	
