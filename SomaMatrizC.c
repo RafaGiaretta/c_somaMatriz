@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-int l, c, i, j, k = 0; 
+int l,c,k;
 
-void iniciarMatrizR(int matrizR[l][c]){
+void iniciarMatrizR(int matrizR[l][c], int i, int j){
 	for(i = 0; i < l; i++) {
         for(j = 0; j < c; j++) {
             matrizR[i][j] = 0;
@@ -10,7 +10,7 @@ void iniciarMatrizR(int matrizR[l][c]){
     }
 }
 
-void preencherMatrizes(int matriz[k][l][c], int vc, int n){
+void preencherMatrizes(int matriz[k][l][c], int vc, int n, int i, int j){
 	for( k = 0; k < n; k++){
 		printf("Entre com os valores da matriz %d: \n", (k+1));
 		for( i = 0; i < l ; i++ ){
@@ -24,7 +24,7 @@ void preencherMatrizes(int matriz[k][l][c], int vc, int n){
 	}	
 }
 
-void mostrarMatrizes(int matriz[k][l][c], int n){
+void mostrarMatrizes(int matriz[k][l][c], int n, int i, int j){
 	printf("Matrizes criadas %d: \n", n);
 
 	for( k = 0; k < n; k++){
@@ -40,7 +40,7 @@ void mostrarMatrizes(int matriz[k][l][c], int n){
 	
 }
 
-void somarMatrizes(int matrizR[l][c], int matriz[k][l][c], int n){
+void somarMatrizes(int matrizR[l][c], int matriz[k][l][c], int n, int i, int j){
 	
 	printf("\n\nSoma das matrizes: \n\n");
 	for( k = 0; k < n; k++){
@@ -53,7 +53,7 @@ void somarMatrizes(int matrizR[l][c], int matriz[k][l][c], int n){
 	
 }
 
-void mostrarMatrizR(int matrizR[l][c]){
+void mostrarMatrizR(int matrizR[l][c], int i, int j){
 printf("\t----------- MATRIZ RESULTANTE -----------\n", (k+1));
 		for( i = 0; i < l ; i++ ){
 			for( j = 0; j < c ; j++){
@@ -65,7 +65,7 @@ printf("\t----------- MATRIZ RESULTANTE -----------\n", (k+1));
 }
 
 void main (){
-	
+	int i, j, k;	
 	int n, vc, vr = 0;
 	int matriz[n][l][c];
 	int matrizR[l][c];	
@@ -76,14 +76,14 @@ void main (){
 	printf("Entre com a quantidade de linhas e colunas: ");
 	scanf("%d %d", &l, &c);
 
-	iniciarMatrizR(matrizR);
+	iniciarMatrizR(matrizR, i, j);
 	
-	preencherMatrizes(matriz, vc, n);
+	preencherMatrizes(matriz, vc, n, i, j);
 
-	mostrarMatrizes(matriz, n);
+	mostrarMatrizes(matriz, n, i, j);
 
-	somarMatrizes(matrizR, matriz, n);
+	somarMatrizes(matrizR, matriz, n, i, j);
 
-	mostrarMatrizR(matrizR);		
+	mostrarMatrizR(matrizR, i, j);		
 	
 }
